@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Bliss Candles - Scented Candle Paradise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #f0f8ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(90deg, #FFB6D9 0%, #B4D4FF 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(255, 182, 217, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bubble {
+            color: #FFB6D9;
+            font-size: 1.2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, #FFF0F6 0%, #E8F4FF 100%);
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #FF69B4;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease;
+            text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #6B9BD1;
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+            font-weight: bold;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Bubbles Animation */
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .bubble-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .bubble1 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #FFB6D9, #FF69B4);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bubble2 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #B4D4FF, #6B9BD1);
+            top: 70%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .bubble3 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #FFE4EE, #FFB6D9);
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .bubble4 {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #D4E4FF, #B4D4FF);
+            top: 20%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .bubble5 {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at 30% 30%, #FFD6E8, #FF69B4);
+            top: 50%;
+            left: 15%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-40px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-20px) translateX(10px);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Catalog Section */
+        .catalog {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .catalog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .catalog-header h2 {
+            font-size: 2.5rem;
+            color: #FF69B4;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #B4D4FF 0%, #6B9BD1 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(107, 155, 209, 0.3);
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(107, 155, 209, 0.4);
+        }
+
+        .candle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .candle-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .candle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FFB6D9, #B4D4FF);
+            animation: shimmer 2s infinite;
+        }
+
+        .candle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+        }
+
+        .candle-image {
+            width: 120px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            font-size: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .candle-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+        }
+
+        .candle-scent {
+            font-size: 0.95rem;
+            color: #6B9BD1;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .candle-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+
+        .candle-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF69B4;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #FFE4EE 0%, #D4E4FF 100%);
+            padding: 5rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #FF69B4;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 600px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            color: #FF69B4;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: linear-gradient(135deg, #FFF5F7 0%, #F0F8FF 100%);
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #FFB6D9;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #FF69B4;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #FFB6D9 0%, #B4D4FF 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .candle-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .catalog-header h2,
+            .about h2,
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bubble">●</span> Bubble Bliss Candles
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Bubble Bliss Candles</h1>
+            <p>Discover our magical world of scented candles</p>
+            <button class="cta-btn">Explore Now</button>
+        </div>
+        <div class="bubbles">
+            <div class="bubble-shape bubble1"></div>
+            <div class="bubble-shape bubble2"></div>
+            <div class="bubble-shape bubble3"></div>
+            <div class="bubble-shape bubble4"></div>
+            <div class="bubble-shape bubble5"></div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog">
+        <div class="catalog-header">
+            <h2>Our Scented Candle Collection</h2>
+            <button class="refresh-btn" onclick="generateRandomCatalog()">Refresh Catalog ✨</button>
+        </div>
+        <div class="candle-grid" id="candleGrid">
+            <!-- Candles will be generated here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Bubble Bliss Candles</h2>
+            <p>We craft premium scented candles using natural ingredients and enchanting fragrances. Each candle is hand-poured with love and care, creating the perfect ambiance for your space.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🕯️</div>
+                    <h3>Premium Quality</h3>
+                    <p>Made with 100% natural soy wax</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌸</div>
+                    <h3>Unique Scents</h3>
+                    <p>Handcrafted fragrance blends</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💝</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable packaging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Bubble Bliss Candles. All rights reserved. Made with 💗 and aromatic bliss.</p>
+    </footer>
+
+    <script>
+        // Candle catalog data
+        const candleScents = [
+            {
+                name: "Lavender Dreams",
+                scent: "Lavender & Vanilla",
+                description: "Calm your mind with soothing lavender and creamy vanilla notes",
+                price: "$12.99",
+                emoji: "🟣"
+            },
+            {
+                name: "Ocean Breeze",
+                scent: "Sea Salt & Citrus",
+                description: "Feel the fresh ocean air with zesty lemon and ocean mist",
+                price: "$13.99",
+                emoji: "🔵"
+            },
+            {
+                name: "Rose Garden",
+                scent: "Rose & Peony",
+                description: "Delicate floral blend perfect for romantic evenings",
+                price: "$14.99",
+                emoji: "🌹"
+            },
+            {
+                name: "Vanilla Bliss",
+                scent: "Vanilla & Caramel",
+                description: "Sweet and comforting with rich caramel undertones",
+                price: "$11.99",
+                emoji: "🟡"
+            },
+            {
+                name: "Minty Fresh",
+                scent: "Peppermint & Eucalyptus",
+                description: "Energizing blend to refresh any room",
+                price: "$12.99",
+                emoji: "🟢"
+            },
+            {
+                name: "Cozy Spice",
+                scent: "Cinnamon & Clove",
+                description: "Warm spices create a homey, welcoming atmosphere",
+                price: "$13.99",
+                emoji: "🟠"
+            },
+            {
+                name: "Cherry Blossom",
+                scent: "Cherry & Almond",
+                description: "Soft and sweet with hints of spring",
+                price: "$12.99",
+                emoji: "🌸"
+            },
+            {
+                name: "Tropical Paradise",
+                scent: "Coconut & Pineapple",
+                description: "Escape to an island getaway with every breath",
+                price: "$13.99",
+                emoji: "🏝️"
+            },
+            {
+                name: "Honey Glow",
+                scent: "Honey & Beeswax",
+                description: "Natural sweetness with a gentle, warm glow",
+                price: "$14.99",
+                emoji: "🍯"
+            },
+            {
+                name: "Forest Escape",
+                scent: "Pine & Cedarwood",
+                description: "Natural forest fragrance for peaceful relaxation",
+                price: "$12.99",
+                emoji: "🌲"
+            },
+            {
+                name: "Berry Bliss",
+                scent: "Strawberry & Blueberry",
+                description: "Sweet berry medley that feels like summer",
+                price: "$11.99",
+                emoji: "🍓"
+            },
+            {
+                name: "Evening Jasmine",
+                scent: "Jasmine & Musk",
+                description: "Sophisticated and mysterious evening scent",
+                price: "$15.99",
+                emoji: "🌙"
+            }
+        ];
+
+        // Function to generate random candles
+        function generateRandomCatalog() {
+            const candleGrid = document.getElementById('candleGrid');
+            candleGrid.innerHTML = '';
+            
+            // Shuffle and select random candles
+            const shuffled = candleScents.sort(() => Math.random() - 0.5);
+            const randomCandles = shuffled.slice(0, Math.floor(Math.random() * 4) + 4);
+            
+            randomCandles.forEach(candle => {
+                const candleCard = document.createElement('div');
+                candleCard.className = 'candle-card';
+                candleCard.innerHTML = `
+                    <div class="candle-image">${candle.emoji}</div>
+                    <div class="candle-name">${candle.name}</div>
+                    <div class="candle-scent">${candle.scent}</div>
+                    <div class="candle-description">${candle.description}</div>
+                    <div class="candle-price">${candle.price}</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                `;
+                
+                // Add click animation
+                candleCard.addEventListener('click', function() {
+                    this.style.animation = 'none';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 10);
+                });
+                
+                candleGrid.appendChild(candleCard);
+            });
+        }
+
+        // Generate catalog on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            generateRandomCatalog();
+            
+            // CTA button functionality
+            const ctaBtn = document.querySelector('.cta-btn');
+            ctaBtn.addEventListener('click', function() {
+                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Add to cart functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const candleName = e.target.parentElement.querySelector('.candle-name').textContent;
+                    alert(`✨ ${candleName} added to your cart! 🛒`);
+                }
+            });
+            
+            // Contact form submission
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for contacting Bubble Bliss Candles! We will get back to you soon. 💌');
+                    this.reset();
+                });
+            }
+        });
+
+        // Refresh button on catalog header
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshBtn = document.querySelector('.refresh-btn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', function() {
+                    this.style.transform = 'rotate(180deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'rotate(0deg)';
+                    }, 600);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
